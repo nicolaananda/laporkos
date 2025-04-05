@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Berhasil</title>
+    <link href="{% static 'css/output.css' %}" rel="stylesheet">
+</head>
+<body class="bg-gray-50 p-8 flex justify-center">
+    <div class="bg-white rounded shadow-md p-6 w-full max-w-lg">
+        <h1 class="text-xl font-semibold text-green-500">Tiket berhasil disubmit!</h1>
+        <p>Judul: {{ ticket.title }}</p>
+        <p>Email: {{ ticket.email }}</p>
+        <a href="{% url 'submit_ticket' %}" class="text-blue-500">Submit tiket lagi</a>
+    </div>
+</body>
+</html>

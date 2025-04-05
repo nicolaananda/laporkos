@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Submit Tiket{% endblock %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+  <div class="w-full max-w-lg mt-10 bg-white shadow-xl rounded-xl p-6">
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="text-3xl font-bold text-gray-800">Kirim Laporan</h1>
+      <a href="{% url 'ticket_list' %}" class="text-sm bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md transition">
+        ← Lihat Daftar Laporan
+      </a>
+    </div>
+
+    <form method="post" class="space-y-6">
+      {% csrf_token %}
+
+      <div>
+        <label class="block mb-1 text-gray-700 font-medium">Judul</label>
+        {{ form.title }}
+      </div>
+
+      <div>
+        <label class="block mb-1 text-gray-700 font-medium">Deskripsi</label>
+        {{ form.description }}
+      </div>
+
+      <div>
+        <label class="block mb-1 text-gray-700 font-medium">Nomor Kamar</label>
+        {{ form.room_number }} 
+      </div>
+
+      <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition duration-300">
+        Kirim Tiket 🚀
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}
